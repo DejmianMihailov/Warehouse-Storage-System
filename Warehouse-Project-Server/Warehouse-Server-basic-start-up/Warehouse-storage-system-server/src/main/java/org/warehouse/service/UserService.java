@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.convert.ReadingConverter;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.warehouse.model.responce.UserDataResponse;
 import org.warehouse.model.responce.UserResponse;
 import org.warehouse.persistence.User;
 import org.warehouse.repository.UserRepository;
@@ -18,5 +19,10 @@ public class UserService {
     {
         User user =  userRepostory.findByEmail(email).get();
         return new UserResponse(user.getId(),user.getFirstname(),user.getLastname(),user.getEmail());
+    }
+
+    public UserDataResponse getUserData(String name) {
+        var user=userRepostory.findByEmail(name).get();
+        return new UserDataResponse(user.getFirstname(), user.getLastname(), user.getEmail());
     }
 }
