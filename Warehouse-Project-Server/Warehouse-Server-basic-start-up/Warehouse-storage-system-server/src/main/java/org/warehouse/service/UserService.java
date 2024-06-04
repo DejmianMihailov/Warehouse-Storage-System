@@ -23,6 +23,6 @@ public class UserService {
 
     public UserDataResponse getUserData(String name) {
         var user=userRepostory.findByEmail(name).get();
-        return new UserDataResponse(user.getFirstname(), user.getLastname(), user.getEmail());
+        return new UserDataResponse(user.getFirstname(), user.getLastname(), user.getEmail(),user.getRole().toString());
     }
 }
