@@ -31,6 +31,4 @@ public class Delivery {
 
     @Column(nullable = false)
     private Long client;
-
-    // Getters and setters
 }

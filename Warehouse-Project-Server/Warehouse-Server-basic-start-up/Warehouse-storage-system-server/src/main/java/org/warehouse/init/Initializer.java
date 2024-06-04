@@ -69,7 +69,7 @@ public class Initializer implements CommandLineRunner {
         Paydesk paydesk = new Paydesk(1l, Timestamp.from(Instant.now()),1l, BigDecimal.valueOf(100000));
         paydeskRepository.save(paydesk);
 
-        Address address = new Address(2l,"Varna","Ul.Struga 8");
+        Address address = new Address(1l,"Varna","Ul.Struga 8");
         addressRepository.save(address);
 
         Client client = new Client(2l,"Teodor");
@@ -90,7 +90,7 @@ public class Initializer implements CommandLineRunner {
         courierRepository.save(courier);
         Client client1 = new Client(1l,"Martin");
         clientRepository.save(client1);
-        Address address1 = new Address(1l,"Varna","Ul.Dobrovnik 18");
+        //Address address1 = new Address(1l,"Varna","Ul.Dobrovnik 18");
         addressRepository.save(address);
     }
 }
