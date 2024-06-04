@@ -71,12 +71,17 @@ public class Initializer implements CommandLineRunner {
 
         Address address = new Address(1l,"Varna","Ul.Struga 8");
         addressRepository.save(address);
+        Address address1 = new Address(2l,"Shumen","Vicho Papazov 22");
+        addressRepository.save(address1);
 
         Client client = new Client(2l,"Teodor");
         clientRepository.save(client);
 
         Delivery delivery = new Delivery(1l,1l,1l,1l,1l,1l);
         deliveryRepository.save(delivery);
+
+        Delivery delivery1 = new Delivery(2l,2l,1l,1l,1l,1l);
+        deliveryRepository.save(delivery1);
 
 
         Invoice invoice = new Invoice(1l, BigDecimal.valueOf(3000),address,"Card",client,delivery);

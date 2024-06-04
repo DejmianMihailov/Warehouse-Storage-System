@@ -26,9 +26,4 @@ public class Address {
 
     @Column(nullable = false)
     private String street;
-
-    @OneToMany(mappedBy = "address")
-    private Set<Invoice> invoices = new LinkedHashSet<>();
-
-    // Getters and setters
 }

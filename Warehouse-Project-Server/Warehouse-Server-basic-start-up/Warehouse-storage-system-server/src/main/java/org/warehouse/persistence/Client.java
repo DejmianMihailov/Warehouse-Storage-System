@@ -23,8 +23,4 @@ public class Client {
 
     @Column(nullable = false)
     private String name;
-
-    @OneToMany(mappedBy = "client")
-    private Set<Invoice> invoices = new LinkedHashSet<>();
-
 }

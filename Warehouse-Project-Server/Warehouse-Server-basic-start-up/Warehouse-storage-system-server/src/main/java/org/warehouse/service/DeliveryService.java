@@ -36,12 +36,11 @@ public class DeliveryService {
         Client fclient = clientRepository.findClientByClientId(delivery.getClient());
         Address faddress = addressRepository.findAddressById(delivery.getAddress());
         Stock fstock = stockRepository.findStockByStockId(delivery.getStock());
-
         return new DeliverySearchResponse(
-                new AddressDTO(faddress.getCity(), faddress.getStreet()),
-                new StockDTO(fstock.getStockId(), fstock.getName()),
+                faddress==null?null:new AddressDTO(faddress.getCity(), faddress.getStreet()),
+                fstock==null?null:new StockDTO(fstock.getStockId(), fstock.getName()),
                 delivery.getTelephone(),
-                new ClientDTO(fclient.getName())
+                fclient==null?null:new ClientDTO(fclient.getName())
         );
     }
 }
