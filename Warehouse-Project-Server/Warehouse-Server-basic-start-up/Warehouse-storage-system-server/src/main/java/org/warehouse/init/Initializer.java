@@ -66,8 +66,15 @@ public class Initializer implements CommandLineRunner {
         Stock stock = new Stock(1l, "B-58");
         stockRepository.save(stock);
 
-        Paydesk paydesk = new Paydesk(1l, Timestamp.from(Instant.now()),1l, BigDecimal.valueOf(100000));
+        Paydesk paydesk = new Paydesk(1l, Timestamp.from(Instant.now()),1l, BigDecimal.valueOf(990.21));
+        Paydesk paydesk1 = new Paydesk(2l, Timestamp.from(Instant.now()),1l, BigDecimal.valueOf(340.51));
+        Paydesk paydesk2 = new Paydesk(3l, Timestamp.from(Instant.now()),1l, BigDecimal.valueOf(965.23));
+        Paydesk paydesk3 = new Paydesk(4l, Timestamp.from(Instant.now()),1l, BigDecimal.valueOf(321.76));
+
         paydeskRepository.save(paydesk);
+        paydeskRepository.save(paydesk1);
+        paydeskRepository.save(paydesk2);
+        paydeskRepository.save(paydesk3);
 
         Address address = new Address(1l,"Varna","Ul.Struga 8");
         addressRepository.save(address);

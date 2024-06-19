@@ -1,21 +1,24 @@
 package org.warehouse.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.warehouse.model.PaydeskDTO;
 import org.warehouse.persistence.Paydesk;
 import org.warehouse.service.PaydeskService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/paydesks")
+@RequestMapping("/api/vi/paydesks")
 public class PaydeskController {
 
     @Autowired
     private PaydeskService paydeskService;
 
     @GetMapping
-    public List<Paydesk> getAllPaydesks() {
-        return paydeskService.getAllPaydesks();
+    public ResponseEntity<List<PaydeskDTO>> getAllPaydesks() {
+        return ResponseEntity.ok().body(paydeskService.getAllPaydesks());
     }
 
     @GetMapping("/{id}")
