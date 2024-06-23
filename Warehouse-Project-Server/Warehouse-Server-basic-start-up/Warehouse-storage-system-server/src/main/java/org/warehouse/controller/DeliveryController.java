@@ -10,13 +10,15 @@ import org.warehouse.model.request.DeliverySearchRequest;
 import org.warehouse.model.responce.DeliverySearchResponse;
 import org.warehouse.service.DeliveryService;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/vi/delivery")
 @RequiredArgsConstructor
 public class DeliveryController {
     private final DeliveryService deliveryService;
     @PostMapping
-    public ResponseEntity<DeliverySearchResponse> searchDeliver(@RequestBody DeliverySearchRequest request){
-        return ResponseEntity.ok(deliveryService.serch(request));
+    public ResponseEntity<List<DeliverySearchResponse>> searchDeliver(@RequestBody DeliverySearchRequest request){
+        return ResponseEntity.ok(List.of(deliveryService.serch(request)));
     }
 }

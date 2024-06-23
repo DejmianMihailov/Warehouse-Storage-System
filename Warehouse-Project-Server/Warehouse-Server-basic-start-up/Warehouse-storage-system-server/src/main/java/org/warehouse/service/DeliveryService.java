@@ -29,10 +29,11 @@ public class DeliveryService {
 
     public DeliverySearchResponse serch(DeliverySearchRequest request) {
         Client client = clientRepository.findClientByName(request.getClientName());
-        Address address = addressRepository.findAddressByCity(request.getAddress());
+        Address address = request.getAddress()==null?null:addressRepository.findAddressByCity(request.getAddress());
         Long tephone = Long.parseLong(request.getTelephone());
         Stock stock = stockRepository.findStockByName(request.getStock());
-        var delivery = deliveryRepository.searchAllByAddressOrClientOrTelephoneOrStock(address.getId(), client.getClientId(), tephone, stock.getStockId()).orElseThrow();
+        var delivery = address==null?deliveryRepository.searchAllByClientOrTelephoneOrStock( client.getClientId(), tephone, stock.getStockId()).orElseThrow():
+                deliveryRepository.searchAllByAddressOrClientOrTelephoneOrStock(address.getId(), client.getClientId(), tephone, stock.getStockId()).orElseThrow();
         Client fclient = clientRepository.findClientByClientId(delivery.getClient());
         Address faddress = addressRepository.findAddressById(delivery.getAddress());
         Stock fstock = stockRepository.findStockByStockId(delivery.getStock());
