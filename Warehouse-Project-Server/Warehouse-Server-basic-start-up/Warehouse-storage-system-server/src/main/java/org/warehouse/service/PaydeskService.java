@@ -24,7 +24,7 @@ public class PaydeskService {
 
     public List<PaydeskDTO> getAllPaydesks() {
         List<PaydeskDTO> foundPaydesks = new ArrayList<>();
-        paydeskRepository.findAll().forEach(paydesk -> foundPaydesks.add(new PaydeskDTO(paydesk.getId(), paydesk.getTimestamp(), paydesk.getUpdateCounter(), paydesk.getMoney())));
+        paydeskRepository.findAll().forEach(paydesk -> foundPaydesks.add(new PaydeskDTO(paydesk.getId(), paydesk.getUpdateCounter(), paydesk.getMoney())));
         return foundPaydesks;
     }
 

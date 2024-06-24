@@ -12,7 +12,6 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class PaydeskDTO {
     private Long id;
-    private Timestamp timestamp;
     private Long updateCounter;
     private BigDecimal money;
 }
